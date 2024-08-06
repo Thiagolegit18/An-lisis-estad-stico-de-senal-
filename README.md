@@ -1,4 +1,4 @@
-# An-lisis-estad-stico-de-senal-
+# Analisis-estadistico-de-senal-
 # Obtención de la Señal Fisiológica
 
 Se accedió a bases de datos de señales fisiológicas PhysioNet, se seleccionó y descargó una señal fisiológica adecuada para el análisis. Descargamos únicamente archivos `.hea` y `.dat`.
