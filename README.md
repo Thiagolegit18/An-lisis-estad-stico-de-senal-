@@ -94,8 +94,13 @@ Se especifica el número de intervalos (`num_bins = 50`). Luego, se encuentra el
 ## Señal Contaminada por Ruido Impulsivo para Obtener un SNR Negativo
 
 - Definimos la amplitud del impulso 40 veces la desviación estándar predefinida de la señal.
+  <p align="center">
+   <img src="https://github.com/user-attachments/assets/4c3f4323-5a23-4045-9b5e-91cbd9554f1c">
+  </p>
 - Realizamos exactamente el mismo procedimiento que usamos para la señal con SNR positivo solo que con una amplitud diferente.
-
+  <p align="center">
+   <img src="https://github.com/user-attachments/assets/deff4eed-4bc6-4717-9333-cf3d6189f213">
+  </p>
 ## Señal Contaminada con Ruido Tipo Artefacto para Obtener un SNR Negativo
 
 - Definimos la probabilidad de que ocurra un artefacto en la señal.
@@ -105,9 +110,22 @@ Se especifica el número de intervalos (`num_bins = 50`). Luego, se encuentra el
 - Inicializamos un array de ceros del mismo tamaño que la señal limpia.
 - Introducimos los artefactos en las posiciones seleccionados, con valores positivos o negativos.
 - Sumamos el ruido tipo artefacto a la señal original para obtener la señal contaminada.
+  <p align="center">
+   <img src="https://github.com/user-attachments/assets/2dfecbdb-761e-4645-8cde-50fb9ddf0ee9">
+  </p>
 - Graficamos la señal contaminada con ruido artefacto y por aparte graficamos el ruido artefacto.
 - Calculamos el SNR con la fórmula antes mencionada.
+  <p align="center">
+   <img src="https://github.com/user-attachments/assets/fdb46c78-ff2a-4b5f-a1ea-603147e5b995">
+  </p>
 
 ## Señal Contaminada con Ruido Tipo Artefacto para Obtener un SNR Negativo
 
 - Realizamos exactamente el mismo procedimiento anterior únicamente que para la amplitud artefacto multiplicamos 50 veces la desviación estándar predefinida de la señal para obtener un SNR negativo.
+  <p align="center">
+   <img src="https://github.com/user-attachments/assets/a8694ca1-e674-4f63-8928-eb55711f8e53">
+  </p>
+- Gráfica ruido tipo artefacto.
+   <p align="center">
+   <img src="https://github.com/user-attachments/assets/6a19f7f2-e345-439f-95ec-5234797e1c16">
+  </p>
