@@ -4,6 +4,7 @@
 
 Se accedió a bases de datos de señales fisiológicas PhysioNet, se seleccionó y descargó una señal fisiológica adecuada para el análisis. Descargamos únicamente archivos `.hea` y `.dat`.
 Esta base de datos incluye 35 registros de ECG de ocho minutos de sujetos humanos que experimentaron episodios de taquicardia ventricular sostenida, aleteo ventricular y fibrilación ventricular.
+
 ## Importación y Visualización de la Señal
 
 La señal fue importada en Python utilizando bibliotecas estándar.
@@ -33,24 +34,46 @@ Cuando trabajamos con datos, a menudo se encuentran valores faltantes o no defin
 
 Usamos la función `plt.hist` de la biblioteca `matplotlib` para crear un histograma. Luego se obtuvieron los límites del eje x del histograma (`xmin` y `xmax`), se crearon 100 puntos igualmente espaciados entre `xmin` y `xmax` y se calculó la función de densidad de probabilidad de una distribución normal con la media y desviación estándar calculadas previamente.
 
+<p align="center">
+   <img src="https://github.com/user-attachments/assets/b1d37700-06e0-429d-bbd1-487e614f8618">
+</p>
+
 ## Histograma desde Cero
 
 Se especifica el número de intervalos (`num_bins = 50`). Luego, se encuentra el valor mínimo y máximo de los datos. Crea 50 intervalos (bins) entre `min_val` y `max_val`. Calculamos el histograma y los bordes de los bins usando estos intervalos. Finalmente, se usan barras (`plt.bar()`) para graficar el histograma.
+
+<p align="center">
+   <img src="https://github.com/user-attachments/assets/76318e4e-2b88-441f-b40f-585b6979232c")
+">
+</p>
 
 ## Señal Contaminada por Ruido Gaussiano para Obtener un SNR Positivo
 
 - Generamos el ruido gaussiano con media 0 y desviación estándar 1.
 - La longitud del ruido es igual a la de `valores_limpios` y luego dividiremos el ruido por 25 para reducir su amplitud, pues con una amplitud menor logramos un SNR positivo.
 - Sumamos el ruido generado a la señal original `valores_limpios` para obtener la señal contaminada y luego la graficamos con sus respectivas etiquetas.
+  <p align="center">
+   <img src="https://github.com/user-attachments/assets/777f6610-81ca-4506-8efc-9f18e596b30a">
+  </p>
 - Calculamos la potencia de la señal (media de los cuadrados de los valores) y la potencia del ruido. Luego, calculamos la SNR en decibelios (dB) usando la fórmula `10 * log10(potencia señal / potencia ruido)`.
 - Luego graficamos únicamente el ruido gaussiano.
+
+  <p align="center">
+   <img src="https://github.com/user-attachments/assets/7f078d18-49a2-49ce-97bc-e22cdca8aaeb">
+  </p>
 
 ## Señal Contaminada por Ruido Gaussiano para Obtener un SNR Negativo
 
 - Generamos el ruido gaussiano con media 0 y desviación estándar 1. Multiplicamos este ruido por 12 para aumentar su amplitud y generar un SNR negativo.
 - Sumamos el ruido generado a la señal original `valores_limpios` para obtener la señal contaminada y la graficamos como la segunda señal contaminada.
+  <p align="center">
+   <img src="https://github.com/user-attachments/assets/d72eb21f-d188-4424-9875-84768cfb4f66">
+  </p>
 - Calculamos la potencia de la señal y la potencia del ruido como antes, y luego calculamos la SNR en decibelios (dB).
 - Por último graficamos el segundo ruido gaussiano generado.
+  <p align="center">
+   <img src="https://github.com/user-attachments/assets/a97ee9b1-ad76-417f-9602-9bdccd4fb911">
+  </p>
 
 ## Señal Contaminada por Ruido Impulsivo para Obtener un SNR Positivo
 
@@ -60,9 +83,14 @@ Se especifica el número de intervalos (`num_bins = 50`). Luego, se encuentra el
 - Seleccionamos aleatoriamente los índices o posiciones de la señal donde se introducirán los impulsos. `replace=False` asegura que no se seleccionen las mismas posiciones más de una vez.
 - Inicializamos un array de ruido impulsivo con ceros del mismo tamaño que la señal original para luego asignar impulsos de amplitud positiva o negativa aleatorios.
 - Sumamos el ruido impulsivo a la señal original para obtener la señal contaminada.
+  <p align="center">
+   <img src="https://github.com/user-attachments/assets/ab626612-fc58-4e9d-8443-914fba14433a">
+  </p>
 - Graficamos la señal contaminada con ruido impulsivo y graficamos el ruido impulsivo.
 - Calculamos la potencia del ruido impulsivo y luego la SNR en decibelios. La potencia se calcula como la media de los cuadrados de los valores del ruido. La SNR se calcula usando la fórmula antes mencionada.
-
+  <p align="center">
+   <img src="https://github.com/user-attachments/assets/0eeb66f9-80a7-4713-9c41-ddf7fbc8c8fb">
+  </p>
 ## Señal Contaminada por Ruido Impulsivo para Obtener un SNR Negativo
 
 - Definimos la amplitud del impulso 40 veces la desviación estándar predefinida de la señal.
